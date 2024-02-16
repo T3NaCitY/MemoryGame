@@ -10,8 +10,7 @@ import java.util.Objects;
 import java.util.Random;
 
 
-public class StateOfTheGame {
-
+public class GameState {
 
     @Getter
     private  String[][] elements = new String[10][10];
@@ -19,6 +18,7 @@ public class StateOfTheGame {
     private HashMap<String, Integer> ElementType = new HashMap<String, Integer>();
     private Boolean SomethingWentWrong = false;
     private int SomethingWentWrongCounter = 0;
+    private String artifact = "";
     private void ElementTypeInitialization(){
         ElementType.put("leaf",2);
         ElementType.put("carrot",2);
@@ -516,8 +516,10 @@ public class StateOfTheGame {
         }
     }
 
-    public StateOfTheGame(int width, int height){
-        ElementInitialization(width,height);
+
+
+    public GameState(int row, int column){
+        ElementInitialization(row,column);
     }
 
 
@@ -531,4 +533,6 @@ public class StateOfTheGame {
         else guessResponse.setIsCorrect(false);
         return guessResponse;
     }
+
+
 }
